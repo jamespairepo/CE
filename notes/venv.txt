@@ -1,6 +1,12 @@
 python -m venv ll_env
 .\ll_env\Scripts\activate
 
+python manage.py runserver
+
+python manage.py migrate
+
+python manage.py shell
+
 A new repo from an existing project
 
 Go into the directory containing the project.
