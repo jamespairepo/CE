@@ -37,7 +37,7 @@
 # print(sol.checkInclusion(s1, s2))
 
 
-### try two
+# try two
 
 
 class Solution:
@@ -50,19 +50,29 @@ class Solution:
 
             for letter in lists1[1:]:
 
-                l, r = 1, 1
+                l, r, count = 1, 1, 0
 
-                if letter == lists2.index(s1[0] - l):
+                if letter == lists2[lists2.index(s1[0]) - l]:
                     l += 1
+                    count += 1
                     continue
 
-                elif letter == lists2.index(s1[0] + r):
+                elif letter == lists2[lists2.index(s1[0]) + r]:
                     r += 1
+                    count += 1
                     continue
+
+                # if count + 1 == len(s1):
+                #     return True
+                #     break
 
                 else:
+                    if count + 1 == len(s1):
+                        return True
                     lists2.remove(s1[0])
-                    l, r = 1, 1
+                    l, r, count = 1, 1, 0
+
+            return True
 
         return False
 
@@ -70,7 +80,7 @@ class Solution:
 # s1 = "ab"  # True
 # s2 = "eidbaooo"
 
-# s1 = "ab" # False
+# s1 = "ab"  # False
 # s2 = "eidboaoo"
 
 s1 = "adc"  # True
